@@ -1,0 +1,100 @@
+{
+  "name": "xauusd-trading-dashboard-electron",
+  "version": "1.0.0",
+  "description": "XAUUSD Trading Dashboard - Electron Desktop App",
+  "main": "dist/main.js",
+  "preload": "dist/preload.js",
+  "homepage": "./",
+  "author": "Trading Dashboard Team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "dev:vite": "vite",
+    "dev:electron": "electron .",
+    "build": "npm run build:vite && npm run build:main && npm run build:preload",
+    "build:vite": "vite build",
+    "build:main": "tsc src/main.ts --outDir dist",
+    "build:preload": "tsc src/preload.ts --outDir dist",
+    "pack": "electron-builder --publish=never",
+    "dist": "npm run build && electron-builder",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:linux": "npm run build && electron-builder --linux",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.263.1",
+    "axios": "^1.5.0",
+    "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.0",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "electron": "^25.8.0",
+    "electron-builder": "^24.6.4",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.28",
+    "tailwindcss": "^3.3.3",
+    "concurrently": "^8.2.0",
+    "wait-on": "^7.0.1",
+    "eslint": "^8.48.0",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0"
+  },
+  "build": {
+    "appId": "com.xauusd.trading-dashboard",
+    "productName": "XAUUSD Trading Dashboard",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.finance"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "assets/icon.png",
+      "category": "Office"
+    }
+  }
+}
