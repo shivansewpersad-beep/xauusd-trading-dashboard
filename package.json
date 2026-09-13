@@ -1,0 +1,30 @@
+{
+  "name": "xauusd-trading-dashboard",
+  "version": "1.0.0",
+  "description": "Professional XAUUSD trading dashboard with SMC analysis",
+  "private": true,
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "workspaces": [
+    "packages/web",
+    "packages/electron",
+    "packages/mobile"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "dev": "npm run dev --workspace=packages/web",
+    "dev:electron": "npm run dev --workspace=packages/electron",
+    "dev:mobile": "npm run dev --workspace=packages/mobile",
+    "build": "npm run build --workspace=packages/web",
+    "build:electron": "npm run build --workspace=packages/electron",
+    "build:mobile": "npm run build --workspace=packages/mobile",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "prettier": "^3.0.0"
+  }
+}
