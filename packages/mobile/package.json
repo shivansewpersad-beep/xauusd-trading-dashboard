@@ -1,0 +1,45 @@
+{
+  "name": "xauusd-trading-dashboard-mobile",
+  "version": "1.0.0",
+  "description": "XAUUSD Trading Dashboard - React Native Mobile App",
+  "main": "index.js",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "build:android": "cd android && ./gradlew assembleRelease",
+    "build:android-apk": "cd android && ./gradlew assembleRelease && cp app/build/outputs/apk/release/app-release.apk ../dist/XAUUSD-Trading-Dashboard.apk",
+    "build:ios": "cd ios && xcodebuild -workspace XAUUSDTradingDashboard.xcworkspace -scheme XAUUSDTradingDashboard -configuration Release",
+    "pod:install": "cd ios && pod install"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-native": "0.72.4",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "react-native-screens": "^3.26.0",
+    "react-native-safe-area-context": "^4.7.2",
+    "react-native-gesture-handler": "^2.14.0",
+    "react-native-reanimated": "^3.5.0",
+    "axios": "^1.5.0",
+    "zustand": "^4.4.1",
+    "react-native-svg": "^13.14.0",
+    "@react-native-async-storage/async-storage": "^1.19.0",
+    "react-native-vector-icons": "^9.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "@types/react-native": "^0.72.2",
+    "@babel/core": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.22.15",
+    "typescript": "^5.1.6",
+    "jest": "^29.7.0",
+    "@testing-library/react-native": "^12.0.0",
+    "eslint": "^8.48.0",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0"
+  }
+}

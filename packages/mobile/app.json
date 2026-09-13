@@ -1,0 +1,14 @@
+{
+  "project": {
+    "projectName": "XAUUSDTradingDashboard",
+    "projectId": "xauusd-trading-dashboard-mobile"
+  },
+  "project_info": {
+    "name": "XAUUSD Trading Dashboard",
+    "bundle_identifier": "com.xauusd.trading"
+  },
+  "ios": {},
+  "android": {
+    "applyPlugin": "com.google.gms.google-services"
+  }
+}
